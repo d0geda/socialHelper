@@ -1,0 +1,24 @@
+#
+# WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+# https://nette.org/security-warning
+#
+parameters:
+
+
+application:
+	errorPresenter: Error
+	mapping:
+		*: App\*Module\Presenters\*Presenter
+
+
+session:
+	expiration: 14 days
+
+services:
+	- App\Forms\FormFactory
+	router: App\RouterFactory::createRouter
+	- App\Auth\Authenticate(%authenticate.login%, %authenticate.password%)
+	- App\Main\Main
+	- App\Main\Response
+	- App\Main\Youtube\Youtube(%youtube.url%, %youtube.apiKey%)
+	- App\Main\Instagram\Instagram

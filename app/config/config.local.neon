@@ -1,0 +1,8 @@
+parameters:
+    authenticate:
+        login: 74ZTP18EPQwEV7R98dUtf4oAf4aCBLpaFP0dNbLK25xJNH94Zt
+        password: HPz3cyfXHFYTNM2RAgLasL5A65wRVABqeboIiuURlYBEVKtCaQ
+
+    youtube:
+        url: https://www.googleapis.com/youtube/v3/
+        apiKey: AIzaSyCiBHXj2XvDmEu7PClr1PIq02FC8ahoZTk
