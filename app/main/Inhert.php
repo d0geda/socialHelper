@@ -8,6 +8,7 @@
 
 namespace App\Main;
 
+use Nette\Neon\Neon;
 use Nette\Utils\Json;
 
 abstract class Inhert
@@ -29,8 +30,14 @@ abstract class Inhert
         else{
             return [false];
         }
+    }
 
+    public function getMessage($mesID, $language){
+        $fileName = __DIR__."/../lang/".$language.".neon";
+        $value = file_get_contents($fileName);
 
+        $neon = Neon::decode($value);
+        return $neon[$language][$mesID];
     }
 
 }

@@ -1,0 +1,15 @@
+enUS:
+    error: 'Oh no! I did not understand you! Could you please repeat it again?'
+    errorNameNotFound: '<speak>Ohh sorry, I was not able, to find channel with name {CHANNELNAME}. <break time="0.5" /> Is the name right?</speak>'
+    errorId: 'I am sorry, but some problem has occured, please try it again later!'
+    errorActionNotFound: 'I am sorry, but there was some error while finding this action, please try again later!'
+    errorStatisticNotFound: 'Sorry, but I could not find any statistics for this channel!'
+    errorYoutube: 'I am sorry, but there was a problem while communicating with youtube servers! Please try it again later!'
+
+    channelSubscribers: '<speak>Channel {CHANNELNAME} currently has {NUMBERSTAT} subscribers! <break time="1" /> What else can I do for you?</speak>'
+    compareChanelSubscribers: '<speak>Channel {FIRSTCHANNELNAME} currently has {NUMBERDIFFERENCE} subscribers more than {SECONDCHANNELNAME}! <break time="1" /> What else can I do for you?<speak>'
+    compareChannelSubscribersEqual: '<speak>Channel {FIRSTCHANNELNAME} and {SECONDCHANNELNAME} have same number of subscribers! <break time="1" /> What else can I do for you?</speak>'
+
+    channelViews: '<speak>Channel {CHANNELNAME} currently has {NUMBERSTAT} views in total! <break time="1" /> What else can I do for you?</speak>'
+    compareChannelViews: '<speak>Channel {FIRSTCHANNELNAME} currently has {NUMBERDIFFERENCE} views in total more than {SECONDCHANNELNAME}! <break time="1" /> What else can I do for you?<speak>'
+    compareChannelViewsEqual: '<speak>Channel {FIRSTCHANNELNAME} and {SECONDCHANNELNAME} have same ammount of views in total! <break time="1" /> What else can I do for you?</speak>'

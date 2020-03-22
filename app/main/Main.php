@@ -9,7 +9,7 @@ namespace App\Main;
 
 use App\Main\Youtube\Youtube;
 
-class Main
+class Main extends Inhert
 {
     /** @var Youtube */
     private $youtube;
@@ -23,13 +23,12 @@ class Main
 
     public function setLanguage($lang){
         $lang = str_replace("-", "", $lang);
-        $fileName = __DIR__."/../lang/".$lang.".php";
+        $fileName = __DIR__."/../lang/".$lang.".neon";
         if (file_exists($fileName)){
-            $lang = "\App\Lang\\$lang";
-            $this->language = new $lang();
+            $this->language = $lang;
         }
         else{
-            $this->language = new \App\Lang\enUS();
+            $this->language = "enUS";
         }
 
         if(!empty($this->language)){
@@ -58,7 +57,7 @@ class Main
                 break;
 
             default:
-                $message = $this->language->errorActionNotFound;
+                $message = $this->getMessage("errorActionNotFound");
 
         }
 

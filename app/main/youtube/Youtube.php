@@ -42,28 +42,28 @@ final class Youtube extends Inhert
 
                     switch ($stats) {
                         case "subscriberCount":
-                            $message = $language->channelSubscribers;
+                            $message = $this->getMessage("channelSubscribers", $language);
                             break;
                         case "viewCount":
-                            $message = $language->channelViews;
+                            $message = $this->getMessage("channelViews", $language);
                             break;
                     }
                     if (!empty($message)) {
                         $message = str_replace("{CHANNELNAME}", $channelTitle, $message);
                         $message = str_replace("{NUMBERSTAT}", strval($number), $message);
                     } else {
-                        $message = $language->errorStatisticNotFound;
+                        $message = $this->getMessage("errorStatisticNotFound", $language);
                     }
                 } else {
-                    $message = $language->errorRequestCouldNotBeHandled;
+                    $message = $this->getMessage("errorYoutube", $language);
                 }
             } else {
-                $message = $language->errorNameNotFound;
+                $message = $this->getMessage("errorNameNotFound", $language);
                 $message = str_replace("{CHANNELNAME}", $name, $message);
             }
         }
         else{
-            $message = $language->errorRequestCouldNotBeHandled;
+            $message = $this->getMessage("errorYoutube", $language);
         }
 
         return $message;
@@ -94,17 +94,17 @@ final class Youtube extends Inhert
                     $numberFirstChannel = $result[1]["items"][0]["statistics"][$stats];
                 } else {
                     $flag = false;
-                    $message = $language->errorRequestCouldNotBeHandled;
+                    $message = $this->getMessage("errorYoutube", $language);
                 }
             } else {
                 $flag = false;
-                $message = $language->errorNameNotFound;
+                $message = $this->getMessage("errorNameNotFound", $language);
                 $message = str_replace("{CHANNELNAME}", $firstName, $message);
             }
         }
         else{
             $flag = false;
-            $message = $language->errorRequestCouldNotBeHandled;
+            $message = $this->getMessage("errorYoutube", $language);
         }
 
         // 2nd channel
@@ -127,27 +127,27 @@ final class Youtube extends Inhert
                         $numberSecondChannel = $result[1]["items"][0]["statistics"][$stats];
                     } else {
                         $flag = false;
-                        $message = $language->errorRequestCouldNotBeHandled;
+                        $message = $this->getMessage("errorYoutube", $language);
                     }
                 } else {
                     $flag = false;
-                    $message = $language->errorNameNotFound;
+                    $message = $this->getMessage("errorNameNotFound", $language);
                     $message = str_replace("{CHANNELNAME}", $secondName, $message);
                 }
             }
             else{
                 $flag = false;
-                $message = $language->errorRequestCouldNotBeHandled;
+                $message = $this->getMessage("errorYoutube", $language);
             }
 
             if($flag) {
 
                 switch($stats) {
                     case "subscriberCount":
-                        $message = $language->compareChannelSubscribers;
+                        $message = $this->getMessage("compareChannelSubscribers", $language);
                         break;
                     case "viewCount":
-                        $message = $language->compareChannelViews;
+                        $message = $this->getMessage("compareChannelViews", $language);
                         break;
                 }
 
@@ -155,10 +155,10 @@ final class Youtube extends Inhert
                 if ($numberDifference == 0) {
                     switch($stats) {
                         case "subscriberCount":
-                            $message = $language->compareChannelSubscribersEqual;
+                            $message = $this->getMessage("compareChannelSubscribersEqual", $language);
                             break;
                         case "viewCount":
-                            $message = $language->compareChannelViewsEqual;
+                            $message = $this->getMessage("compareChannelViewsEqual", $language);
                             break;
                     }
                     $message = str_replace("{FIRSTCHANNELNAME}", $channelTitleFirstChannel, $message);

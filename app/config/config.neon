@@ -21,4 +21,3 @@ services:
 	- App\Main\Main
 	- App\Main\Response
 	- App\Main\Youtube\Youtube(%youtube.url%, %youtube.apiKey%)
-	- App\Main\Instagram\Instagram
