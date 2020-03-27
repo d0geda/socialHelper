@@ -23,6 +23,18 @@ final class Youtube extends Inhert
 
     }
 
+    public function getChannelId($data)
+    {
+        $best = 0;
+        $bestI = 0;
+        for($i = 0; $i < count($data); $i++){
+            if($data[$i]["statistics"]["subscriberCount"] > $best){
+                $bestI = $i;
+            }
+        }
+        return $data[$bestI]["id"]["channelId"];
+    }
+
     public function channelStats($data, $stats, $language){
         $name = $data["queryResult"]["parameters"]["channelName"];
         $name = str_replace(" ", "", $name);
@@ -31,7 +43,7 @@ final class Youtube extends Inhert
         $result = $this->cURL($searchUrl);
         if($result[0]) {
             if ($result[1]["pageInfo"]["totalResults"] >= 1) {
-                $channelID = $result[1]["items"][0]["id"]["channelId"];
+                $channelID = $this->getChannelId($result[1]["items"]);
                 $channelTitle = $result[1]["items"][0]["snippet"]["title"];
 
                 $statisticsUrl = $this->url . "channels?part=statistics&id=" . $channelID . "&key=" . $this->apiKey;
@@ -83,7 +95,7 @@ final class Youtube extends Inhert
 
         if($result[0]) {
             if ($result[1]["pageInfo"]["totalResults"] >= 1) {
-                $channelID = $result[1]["items"][0]["id"]["channelId"];
+                $channelID = $this->getChannelId($result[1]["items"]);
                 $channelTitleFirstChannel = $result[1]["items"][0]["snippet"]["title"];
 
                 $statisticsUrl = $this->url . "channels?part=statistics&id=" . $channelID . "&key=" . $this->apiKey;
@@ -116,7 +128,7 @@ final class Youtube extends Inhert
 
             if($result[0]) {
                 if ($result[1]["pageInfo"]["totalResults"] >= 1) {
-                    $channelID = $result[1]["items"][0]["id"]["channelId"];
+                    $channelID = $this->getChannelId($result[1]["items"]);
                     $channelTitleSecondChannel = $result[1]["items"][0]["snippet"]["title"];
 
                     $statisticsUrl = $this->url . "channels?part=statistics&id=" . $channelID . "&key=" . $this->apiKey;
