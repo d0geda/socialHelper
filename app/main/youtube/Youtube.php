@@ -38,7 +38,7 @@ final class Youtube extends Inhert
     public function channelStats($data, $stats, $language){
         $name = $data["queryResult"]["parameters"]["channelName"];
         $name = str_replace(" ", "", $name);
-        $searchUrl = $this->url."search?part=snippet&type=channel&maxResults=1&q=".$name."&key=".$this->apiKey;
+        $searchUrl = $this->url."search?part=snippet&type=channel&maxResults=10&q=".$name."&key=".$this->apiKey;
 
         $result = $this->cURL($searchUrl);
         if($result[0]) {
@@ -89,7 +89,7 @@ final class Youtube extends Inhert
         $secondName = $data["queryResult"]["parameters"]["secondChannelName"];
 
         // 1st channel
-        $searchUrl = $this->url."search?part=snippet&type=channel&maxResults=1&q=".$firstName."&key=".$this->apiKey;
+        $searchUrl = $this->url."search?part=snippet&type=channel&maxResults=10&q=".$firstName."&key=".$this->apiKey;
 
         $result = $this->cURL($searchUrl);
 
@@ -122,7 +122,7 @@ final class Youtube extends Inhert
         // 2nd channel
 
         if($flag){
-            $searchUrl = $this->url."search?part=snippet&type=channel&maxResults=1&q=".$secondName."&key=".$this->apiKey;
+            $searchUrl = $this->url."search?part=snippet&type=channel&maxResults=10&q=".$secondName."&key=".$this->apiKey;
 
             $result = $this->cURL($searchUrl);
 
