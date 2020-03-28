@@ -15,7 +15,6 @@ session:
 	expiration: 14 days
 
 services:
-	- App\Forms\FormFactory
 	router: App\RouterFactory::createRouter
 	- App\Auth\Authenticate(%authenticate.login%, %authenticate.password%)
 	- App\Main\Main
